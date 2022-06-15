@@ -57,14 +57,21 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pet_ShopDataSet1 = new ExeCRUDWinForm.Pet_ShopDataSet1();
+            this.barangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.barangTableAdapter = new ExeCRUDWinForm.Pet_ShopDataSet1TableAdapters.BarangTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "Stok", true));
             this.textBox4.Location = new System.Drawing.Point(173, 237);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(165, 22);
@@ -73,6 +80,7 @@ namespace ExeCRUDWinForm
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "Nama_Barang", true));
             this.textBox2.Location = new System.Drawing.Point(173, 95);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(165, 22);
@@ -91,6 +99,7 @@ namespace ExeCRUDWinForm
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "ID_Barang", true));
             this.textBox1.Location = new System.Drawing.Point(173, 24);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(165, 22);
@@ -182,6 +191,7 @@ namespace ExeCRUDWinForm
             // textBox3
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "Harga", true));
             this.textBox3.Location = new System.Drawing.Point(173, 166);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(165, 22);
@@ -222,6 +232,7 @@ namespace ExeCRUDWinForm
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.barangBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -261,6 +272,7 @@ namespace ExeCRUDWinForm
             // textBox5
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "ID_Supplier", true));
             this.textBox5.Location = new System.Drawing.Point(173, 310);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(165, 22);
@@ -320,23 +332,52 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(451, 439);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Back";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // pet_ShopDataSet1
+            // 
+            this.pet_ShopDataSet1.DataSetName = "Pet_ShopDataSet1";
+            this.pet_ShopDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // barangBindingSource
+            // 
+            this.barangBindingSource.DataMember = "Barang";
+            this.barangBindingSource.DataSource = this.pet_ShopDataSet1;
+            // 
+            // barangTableAdapter
+            // 
+            this.barangTableAdapter.ClearBeforeFill = true;
+            // 
             // FormBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 474);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "FormBarang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barang";
+            this.Load += new System.EventHandler(this.FormBarang_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,5 +411,9 @@ namespace ExeCRUDWinForm
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button4;
+        private Pet_ShopDataSet1 pet_ShopDataSet1;
+        private System.Windows.Forms.BindingSource barangBindingSource;
+        private Pet_ShopDataSet1TableAdapters.BarangTableAdapter barangTableAdapter;
     }
 }

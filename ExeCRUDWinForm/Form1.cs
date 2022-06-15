@@ -40,7 +40,7 @@ namespace ExeCRUDWinForm
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FormTransaksi transaksi = new FormTransaksi);
+            FormTransaksi transaksi = new FormTransaksi();
             transaksi.Show();
             this.Hide();
         }

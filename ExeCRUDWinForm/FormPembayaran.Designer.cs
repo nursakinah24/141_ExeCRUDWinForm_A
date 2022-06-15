@@ -42,6 +42,8 @@ namespace ExeCRUDWinForm
             this.label2 = new System.Windows.Forms.Label();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pet_ShopDataSet = new ExeCRUDWinForm.Pet_ShopDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,14 +57,18 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.button3 = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.pet_ShopDataSet = new ExeCRUDWinForm.Pet_ShopDataSet();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierTableAdapter = new ExeCRUDWinForm.Pet_ShopDataSetTableAdapters.SupplierTableAdapter();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pet_ShopDataSet1 = new ExeCRUDWinForm.Pet_ShopDataSet1();
+            this.pembayaranBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pembayaranTableAdapter = new ExeCRUDWinForm.Pet_ShopDataSet1TableAdapters.PembayaranTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pembayaranBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigatorMoveLastItem
@@ -113,6 +119,7 @@ namespace ExeCRUDWinForm
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pembayaranBindingSource, "ID_Transaksi", true));
             this.textBox4.Location = new System.Drawing.Point(148, 255);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(140, 22);
@@ -121,6 +128,7 @@ namespace ExeCRUDWinForm
             // textBox3
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pembayaranBindingSource, "Total_Bayar", true));
             this.textBox3.Location = new System.Drawing.Point(148, 179);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(140, 22);
@@ -129,6 +137,7 @@ namespace ExeCRUDWinForm
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pembayaranBindingSource, "Tanggal_Bayar", true));
             this.textBox2.Location = new System.Drawing.Point(148, 103);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(140, 22);
@@ -157,11 +166,21 @@ namespace ExeCRUDWinForm
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "ID_Supplier", true));
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.pembayaranBindingSource, "ID_Pembayaran", true));
             this.textBox1.Location = new System.Drawing.Point(148, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(140, 22);
             this.textBox1.TabIndex = 0;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "Supplier";
+            this.supplierBindingSource.DataSource = this.pet_ShopDataSet;
+            // 
+            // pet_ShopDataSet
+            // 
+            this.pet_ShopDataSet.DataSetName = "Pet_ShopDataSet";
+            this.pet_ShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -278,6 +297,7 @@ namespace ExeCRUDWinForm
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.pembayaranBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -304,40 +324,58 @@ namespace ExeCRUDWinForm
             this.bindingNavigator1.TabIndex = 6;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
-            // pet_ShopDataSet
-            // 
-            this.pet_ShopDataSet.DataSetName = "Pet_ShopDataSet";
-            this.pet_ShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataMember = "Supplier";
-            this.supplierBindingSource.DataSource = this.pet_ShopDataSet;
-            // 
             // supplierTableAdapter
             // 
             this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(451, 439);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Back";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // pet_ShopDataSet1
+            // 
+            this.pet_ShopDataSet1.DataSetName = "Pet_ShopDataSet1";
+            this.pet_ShopDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pembayaranBindingSource
+            // 
+            this.pembayaranBindingSource.DataMember = "Pembayaran";
+            this.pembayaranBindingSource.DataSource = this.pet_ShopDataSet1;
+            // 
+            // pembayaranTableAdapter
+            // 
+            this.pembayaranTableAdapter.ClearBeforeFill = true;
             // 
             // FormPembayaran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 474);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "FormPembayaran";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pembayaran";
             this.Load += new System.EventHandler(this.FormPembayaran_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pembayaranBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,5 +410,9 @@ namespace ExeCRUDWinForm
         private Pet_ShopDataSet pet_ShopDataSet;
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private Pet_ShopDataSetTableAdapters.SupplierTableAdapter supplierTableAdapter;
+        private System.Windows.Forms.Button button4;
+        private Pet_ShopDataSet1 pet_ShopDataSet1;
+        private System.Windows.Forms.BindingSource pembayaranBindingSource;
+        private Pet_ShopDataSet1TableAdapters.PembayaranTableAdapter pembayaranTableAdapter;
     }
 }
