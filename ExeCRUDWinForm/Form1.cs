@@ -16,5 +16,40 @@ namespace ExeCRUDWinForm
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormSupplier supplier = new FormSupplier();
+            supplier.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormBarang barang = new FormBarang();
+            barang.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormPembeli pembeli = new FormPembeli();
+            pembeli.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormTransaksi transaksi = new FormTransaksi);
+            transaksi.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormPembayaran pembayaran = new FormPembayaran();
+            pembayaran.Show();
+            this.Hide();
+        }
     }
 }

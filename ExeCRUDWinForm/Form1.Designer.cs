@@ -41,7 +41,7 @@ namespace ExeCRUDWinForm
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(229, 53);
+            this.label1.Location = new System.Drawing.Point(239, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(335, 39);
             this.label1.TabIndex = 4;
@@ -50,64 +50,69 @@ namespace ExeCRUDWinForm
             // button5
             // 
             this.button5.Image = global::ExeCRUDWinForm.Properties.Resources.pay;
-            this.button5.Location = new System.Drawing.Point(631, 145);
+            this.button5.Location = new System.Drawing.Point(633, 181);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(129, 106);
+            this.button5.Size = new System.Drawing.Size(144, 121);
             this.button5.TabIndex = 8;
             this.button5.Text = "Pembayaran";
             this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
             this.button4.Image = global::ExeCRUDWinForm.Properties.Resources.transaction;
-            this.button4.Location = new System.Drawing.Point(477, 145);
+            this.button4.Location = new System.Drawing.Point(483, 181);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 106);
+            this.button4.Size = new System.Drawing.Size(144, 121);
             this.button4.TabIndex = 7;
             this.button4.Text = "Transaksi";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
             this.button3.Image = global::ExeCRUDWinForm.Properties.Resources.buyer;
-            this.button3.Location = new System.Drawing.Point(330, 145);
+            this.button3.Location = new System.Drawing.Point(333, 181);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 106);
+            this.button3.Size = new System.Drawing.Size(144, 121);
             this.button3.TabIndex = 6;
             this.button3.Text = "Pembeli";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.Image = global::ExeCRUDWinForm.Properties.Resources.pet_food;
-            this.button2.Location = new System.Drawing.Point(178, 145);
+            this.button2.Location = new System.Drawing.Point(183, 181);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 106);
+            this.button2.Size = new System.Drawing.Size(144, 121);
             this.button2.TabIndex = 5;
             this.button2.Text = "Barang";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.Image = global::ExeCRUDWinForm.Properties.Resources.inventory;
-            this.button1.Location = new System.Drawing.Point(28, 145);
+            this.button1.Location = new System.Drawing.Point(33, 181);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 106);
+            this.button1.Size = new System.Drawing.Size(144, 121);
             this.button1.TabIndex = 0;
             this.button1.Text = "Supplier";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(797, 328);
+            this.ClientSize = new System.Drawing.Size(814, 383);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);

@@ -55,14 +55,20 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.pet_ShopDataSet = new ExeCRUDWinForm.Pet_ShopDataSet();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierTableAdapter = new ExeCRUDWinForm.Pet_ShopDataSetTableAdapters.SupplierTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.supplierBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -175,6 +181,7 @@ namespace ExeCRUDWinForm
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "ID_Supplier", true));
             this.textBox1.Location = new System.Drawing.Point(148, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(140, 22);
@@ -224,6 +231,7 @@ namespace ExeCRUDWinForm
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "Nama_Supplier", true));
             this.textBox2.Location = new System.Drawing.Point(148, 103);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(140, 22);
@@ -232,6 +240,7 @@ namespace ExeCRUDWinForm
             // textBox3
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "No_Telp", true));
             this.textBox3.Location = new System.Drawing.Point(148, 179);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(140, 22);
@@ -240,6 +249,7 @@ namespace ExeCRUDWinForm
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "Alamat", true));
             this.textBox4.Location = new System.Drawing.Point(148, 255);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(140, 22);
@@ -289,6 +299,7 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
             // bindingNavigatorMoveLastItem
             // 
@@ -298,6 +309,20 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // pet_ShopDataSet
+            // 
+            this.pet_ShopDataSet.DataSetName = "Pet_ShopDataSet";
+            this.pet_ShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "Supplier";
+            this.supplierBindingSource.DataSource = this.pet_ShopDataSet;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
             // 
             // FormSupplier
             // 
@@ -311,11 +336,14 @@ namespace ExeCRUDWinForm
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "FormSupplier";
             this.Text = "Supplier";
+            this.Load += new System.EventHandler(this.FormSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -346,5 +374,8 @@ namespace ExeCRUDWinForm
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private Pet_ShopDataSet pet_ShopDataSet;
+        private System.Windows.Forms.BindingSource supplierBindingSource;
+        private Pet_ShopDataSetTableAdapters.SupplierTableAdapter supplierTableAdapter;
     }
 }

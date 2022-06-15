@@ -55,9 +55,14 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.button3 = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.pet_ShopDataSet = new ExeCRUDWinForm.Pet_ShopDataSet();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierTableAdapter = new ExeCRUDWinForm.Pet_ShopDataSetTableAdapters.SupplierTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigatorMoveLastItem
@@ -147,10 +152,12 @@ namespace ExeCRUDWinForm
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "ID_Supplier", true));
             this.textBox1.Location = new System.Drawing.Point(148, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(140, 22);
@@ -297,6 +304,20 @@ namespace ExeCRUDWinForm
             this.bindingNavigator1.TabIndex = 6;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
+            // pet_ShopDataSet
+            // 
+            this.pet_ShopDataSet.DataSetName = "Pet_ShopDataSet";
+            this.pet_ShopDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataMember = "Supplier";
+            this.supplierBindingSource.DataSource = this.pet_ShopDataSet;
+            // 
+            // supplierTableAdapter
+            // 
+            this.supplierTableAdapter.ClearBeforeFill = true;
+            // 
             // FormPembayaran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -309,11 +330,14 @@ namespace ExeCRUDWinForm
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "FormPembayaran";
             this.Text = "Pembayaran";
+            this.Load += new System.EventHandler(this.FormPembayaran_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pet_ShopDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,5 +369,8 @@ namespace ExeCRUDWinForm
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private Pet_ShopDataSet pet_ShopDataSet;
+        private System.Windows.Forms.BindingSource supplierBindingSource;
+        private Pet_ShopDataSetTableAdapters.SupplierTableAdapter supplierTableAdapter;
     }
 }
